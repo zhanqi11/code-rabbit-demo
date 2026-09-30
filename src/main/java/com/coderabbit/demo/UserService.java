@@ -1,6 +1,7 @@
 package com.coderabbit.demo;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -15,5 +16,12 @@ public class UserService {
 
     public List<User> list() {
         return users;
+    }
+
+    public Optional<User> findById(Long id) {
+        if (id == null) {
+            return Optional.empty();
+        }
+        return users.stream().filter(user -> user.id().equals(id)).findFirst();
     }
 }
