@@ -1,0 +1,30 @@
+# 言語設定：日本語
+language: "ja-JP"
+reviews:
+  # レビューの厳格さ：厳しめ（assertive）
+  profile: "assertive"
+  # 上位レベルの概要を生成するか
+  high_level_summary: true
+  # レビューステータスを表示するか
+  review_status: false
+  # 問題がある場合に「変更を要求」レビューを作成するワークフローを有効
+  request_changes_workflow: true
+  # 変更要求がある場合、コミットステータスを失敗にする
+  fail_commit_status: true
+  auto_review:
+    # 自動レビュー機能を有効
+    enabled: true
+    # 下書きPRに対してレビューを実行しない
+    drafts: false
+    # 対象とするベースブランチ（正規表現、全てのブランチを対象）
+    base_branches:
+      - ".*"
+    # プッシュ時のインクリメンタル（差分）自動レビューを有効
+    auto_incremental_review: true
+  # ファイルパス別のレビュー指示
+  path_instructions:
+    - path: "src/**/*.java"
+      instructions: "NullPointerException、例外処理、SQLインジェクション、スレッドセーフティ、SpringBootのコードを重点的にチェックすること"
+chat:
+  # チャットで自動返信を有効
+  auto_reply: true
