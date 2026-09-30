@@ -1,6 +1,14 @@
 spring:
   application:
     name: code-rabbit-demo
+  datasource:
+    url: jdbc:h2:mem:demo
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  sql:
+    init:
+      mode: always
 
 server:
   port: 8080
